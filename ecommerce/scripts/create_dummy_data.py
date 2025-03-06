@@ -1,15 +1,17 @@
 import random
+
 import typer
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
-from ecommerce.core.config.db import DB_URL
+
+from ecommerce.core.config.db import DB_SYNC_URL
 from ecommerce.core.models.order import Order, OrderItem, OrderStatus
 from ecommerce.core.models.product import Product
 
 app = typer.Typer()
 
 # Initialize the database connection
-engine = create_engine(DB_URL)
+engine = create_engine(DB_SYNC_URL)
 Session = sessionmaker(bind=engine)
 
 

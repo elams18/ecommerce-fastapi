@@ -1,9 +1,20 @@
+import logging
+
 from fastapi import FastAPI
-import asyncio
+
+from ecommerce.core.config.db import DB_URL
 from ecommerce.core.models import Base, async_engine
-from ecommerce.v1.routes import product, order
+from ecommerce.v1.routes import order, product
 
 app = FastAPI()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.StreamHandler()  # Log to the console
+    ],
+)
 
 
 async def create_all():

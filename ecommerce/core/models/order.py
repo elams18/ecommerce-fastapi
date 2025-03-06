@@ -1,4 +1,5 @@
 from enum import StrEnum, auto
+
 from sqlalchemy import Column, Enum, ForeignKey, Integer, Numeric
 from sqlalchemy.orm import relationship
 

@@ -6,8 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "asyncpg>=0.30.0",
-    "fastapi[standard]>=0.115.11",
+    "fastapi[all,standard]>=0.115.11",
     "greenlet>=3.1.1",
+    "pre-commit>=4.1.0",
     "psycopg2>=2.9.10",
     "sqlalchemy>=2.0.38",
     "sqlalchemy-stubs>=0.4",

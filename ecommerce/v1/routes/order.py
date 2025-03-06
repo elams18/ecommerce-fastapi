@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from ecommerce.core.models.order import Order
-from ecommerce.core.schemas.order_schema import CreateOrder, OrderResponse, OrderSchema
+
+from ecommerce.core.schemas.order_schema import CreateOrder, OrderResponse
 from ecommerce.core.services.order_service import OrderService
 
 router = APIRouter()

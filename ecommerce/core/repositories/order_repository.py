@@ -5,6 +5,7 @@ from uuid import UUID
 from fastapi import Depends
 from sqlalchemy import select
 from sqlalchemy.orm import joinedload
+
 from ecommerce.core.models import get_db
 from ecommerce.core.models.order import Order, OrderItem
 from ecommerce.core.schemas.order_schema import (
@@ -33,7 +34,7 @@ class OrderRepository:
             )
             session.add(order)
             await session.commit()
-            # Create the OrderItem entities
+
             order_items = [
                 OrderItem(
                     order_id=order.id,
@@ -44,7 +45,7 @@ class OrderRepository:
             ]
             session.add_all(order_items)
             await session.commit()
-            # Fetch the OrderItem entities for the created Order
+
             order_items = await session.execute(
                 select(OrderItem).where(OrderItem.order_id == order.id)
             )

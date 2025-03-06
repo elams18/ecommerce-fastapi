@@ -5,6 +5,7 @@ from uuid import UUID
 from fastapi import Depends
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from ecommerce.core.models import get_db
 from ecommerce.core.models.product import Product
 from ecommerce.core.schemas.product_schema import ProductCreate

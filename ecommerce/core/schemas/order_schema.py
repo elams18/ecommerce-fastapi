@@ -1,5 +1,6 @@
 from decimal import Decimal
 from typing import Dict, List, Optional
+
 from pydantic import BaseModel, ConfigDict, Field
 
 from ecommerce.core.models.order import OrderStatus

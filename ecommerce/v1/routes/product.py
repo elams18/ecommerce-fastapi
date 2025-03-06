@@ -1,4 +1,5 @@
 from typing import List
+
 from fastapi import APIRouter, Body, Depends
 
 from ecommerce.core.models.product import Product

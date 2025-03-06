@@ -1,4 +1,5 @@
 from fastapi import Depends
+
 from ecommerce.core.repositories.product_repository import ProductRepository
 from ecommerce.core.schemas.product_schema import ProductCreate
 

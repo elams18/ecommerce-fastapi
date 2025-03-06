@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 from pydantic import BaseModel
 from pydantic.config import ConfigDict
 
