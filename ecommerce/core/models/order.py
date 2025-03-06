@@ -1,8 +1,8 @@
-from decimal import Decimal
 from enum import StrEnum, auto
-from typing import List
-from uuid import UUID, uuid4
-from pydantic import BaseModel, Field
+from sqlalchemy import Column, Enum, ForeignKey, Integer, Numeric
+from sqlalchemy.orm import relationship
+
+from ecommerce.core.models import Base
 
 
 class OrderStatus(StrEnum):
@@ -10,13 +10,23 @@ class OrderStatus(StrEnum):
     COMPLETED = auto()
 
 
-class OrderItem(BaseModel):
-    product_id: UUID
-    quantity: int
+class OrderItem(Base):
+    __tablename__ = "order_items"
+
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey("orders.id"))
+    product_id = Column(Integer, ForeignKey("products.id"))
+    quantity = Column(Integer)
+
+    order = relationship("Order", back_populates="items")
+    product = relationship("Product")
 
 
-class Order(BaseModel):
-    id: UUID = Field(default_factory=uuid4)
-    products: List[OrderItem] = []
-    total_price: Decimal
-    status: OrderStatus = Field(default=OrderStatus.PENDING)
+class Order(Base):
+    __tablename__ = "orders"
+
+    id = Column(Integer, primary_key=True)
+    total_price = Column(Numeric(precision=10, scale=2))
+    status = Column(Enum(OrderStatus), default=OrderStatus.PENDING)
+
+    items = relationship("OrderItem", back_populates="order")
