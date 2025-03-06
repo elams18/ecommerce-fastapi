@@ -2,6 +2,8 @@
 
 This is a simple ecommerce API built using the FastAPI framework. It provides endpoints for managing products, orders, and users.
 
+Github Repo: [Here](https://github.com/elams18/ecommerce-fastapi/)
+
 ## Features
 
 - **Product Management**: Create, read, update products.
