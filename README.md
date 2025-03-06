@@ -4,11 +4,9 @@ This is a simple ecommerce API built using the FastAPI framework. It provides en
 
 ## Features
 
-- **Product Management**: Create, read, update, and delete products.
-- **Order Management**: Create, read, update, and delete orders.
-- **User Management**: Create, read, update, and delete users.
-- **Authentication**: User authentication using JWT tokens.
-- **Database Integration**: Uses SQLAlchemy to interact with a database (e.g., SQLite, PostgreSQL).
+- **Product Management**: Create, read, update products.
+- **Order Management**: Create, read, update, orders.
+- **Database Integration**: Uses SQLAlchemy to interact with a database (e.g., PostgreSQL).
 - **Containerization**: Includes a Dockerfile for easy deployment.
 
 ## Getting Started
@@ -45,18 +43,12 @@ source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
 ```
 pip install -r requirements.txt
 ```
-
-5. Set up the database:
-
-```
-python ecommerce/scripts/create_db.py
-```
-6. Add dummy data to the DB(optional)
+5. Add dummy data to the DB(optional)
 
 ```
 python -m ecommerce.scripts.create_dummy_data
 ```
-7. Start the development server:
+6. Start the development server:
 
 ```
 uvicorn ecommerce.main:app --reload
@@ -66,16 +58,16 @@ The API will be available at `http://localhost:8000`.
 
 ### Docker
 
-1. Build the Docker image:
+1. Build the Docker-Compose image:
 
 ```
-docker build -t ecommerce-fastapi .
+docker-compose build
 ```
 
-2. Run the Docker container:
+2. Run the Docker Compose :
 
 ```
-docker run -p 8000:8000 ecommerce-fastapi
+docker-compose up -d
 ```
 
 The API will be available at `http://localhost:8000`.

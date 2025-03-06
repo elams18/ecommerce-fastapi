@@ -1,10 +1,9 @@
-from decimal import Decimal
 from typing import List
 
 from fastapi import Depends
 
 from ecommerce.core.exceptions import ProductNotInStock
-from ecommerce.core.models.order import Order, OrderItem, OrderStatus
+from ecommerce.core.models.order import OrderStatus
 from ecommerce.core.models.product import Product
 from ecommerce.core.repositories.order_repository import OrderRepository
 from ecommerce.core.repositories.product_repository import ProductRepository
@@ -41,7 +40,7 @@ class OrderService:
         ]
         total_price = sum([product.price for product in products], 0)
         order = OrderSchema(
-            total_price=total_price, status=OrderStatus.PENDING, items=order_items
+            total_price=total_price, status=OrderStatus.COMPLETED, items=order_items
         )
         order = await self.order_repository.create_order(order)
         return order

@@ -1,15 +1,11 @@
-from decimal import Decimal
 from typing import List
-from uuid import UUID
 
 from fastapi import Depends
 from sqlalchemy import select
-from sqlalchemy.orm import joinedload
 
 from ecommerce.core.models import get_db
 from ecommerce.core.models.order import Order, OrderItem
 from ecommerce.core.schemas.order_schema import (
-    CreateOrder,
     OrderItemSchema,
     OrderResponse,
     OrderSchema,

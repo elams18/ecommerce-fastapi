@@ -2,7 +2,6 @@ import logging
 
 from fastapi import FastAPI
 
-from ecommerce.core.config.db import DB_URL
 from ecommerce.core.models import Base, async_engine
 from ecommerce.v1.routes import order, product
 

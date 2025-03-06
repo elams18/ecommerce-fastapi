@@ -1,6 +1,4 @@
-from decimal import Decimal
 from typing import List
-from uuid import UUID
 
 from fastapi import Depends
 from sqlalchemy import select, update

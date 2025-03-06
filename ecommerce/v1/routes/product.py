@@ -2,7 +2,6 @@ from typing import List
 
 from fastapi import APIRouter, Body, Depends
 
-from ecommerce.core.models.product import Product
 from ecommerce.core.schemas.product_schema import ProductCreate
 from ecommerce.core.services.product_service import ProductService
 

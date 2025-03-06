@@ -1,4 +1,3 @@
-from pydantic import ConfigDict
 from sqlalchemy import Column, Integer, Numeric, String
 
 from ecommerce.core.models import Base
